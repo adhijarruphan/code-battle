@@ -1,5 +1,5 @@
 /* Compile with:
- *      clang++ -std=c++11 solution.cpp
+ *      clang++ -std=c++11 -O3 solution.cpp
  * Execute with:
  *      ./a.out
  */
@@ -10,11 +10,11 @@
 
 
 int main() {
-    std::ifstream data("q1.txt");
-    std::vector<bool> numbers(10000);
+    std::ifstream data("numbers.txt");
+    std::vector<bool> numbers(10000, false);
     while ( data.good() ) {
         int number;
-        std::cin >> number;
+        data >> number;
         numbers[number] = true;
     }
     for ( int index = 0; index < numbers.size(); ++index ) {
