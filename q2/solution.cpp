@@ -5,15 +5,28 @@
  */
 #include <iostream>
 #include <iomanip>
+#include <iterator>
 #include <fstream>
 #include <vector>
 
 
+template< typename I >
+struct S {
+    S(I i) : b(i) {}
+    I begin() const { return b; }
+    I end() const { return I(); }
+private:
+    I b;
+};
+
+template< typename I >
+S<I> C(I i) { return S<I>(i); }
+
+
 int main() {
-    std::ifstream data("numbers.txt");
     std::vector<int> numbers(1000000, 0);
-    while ( data.good() ) {
-        int number;
+    std::ifstream data("numbers.txt");
+    for ( auto number : C(std::istream_iterator<int>(data)) ) {
         data >> number;
         ++numbers[number];
     }
