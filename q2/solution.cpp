@@ -12,7 +12,7 @@
 int main() {
     std::ifstream data("numbers.txt");
     std::vector<int> numbers(1000000, 0);
-    while ( not data.eof() ) {
+    while ( data.good() ) {
         int number;
         data >> number;
         ++numbers[number];
