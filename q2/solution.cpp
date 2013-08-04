@@ -32,8 +32,10 @@ int main() {
     }
     for ( int index = 0; index < numbers.size(); ++index ) {
         if ( numbers[index] > 1 ) {
-            std::cout << std::setfill('0') << std::setw(6);
-            std::cout << index << std::endl;
+            std::cout << "\"";
+            std::cout << std::setfill('0') << std::setw(6) << index;
+            std::cout << "\",";
+            std::cout << numbers[index] << '\n';
         }
     }
 }
