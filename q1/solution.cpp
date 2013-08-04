@@ -20,7 +20,7 @@ int main() {
     for ( int index = 0; index < numbers.size(); ++index ) {
         if ( not numbers[index] ) {
             std::cout << std::setfill('0') << std::setw(4);
-            std::cout << index << std::endl;
+            std::cout << index << '\n';
         }
     }
 }
